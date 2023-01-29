@@ -1,0 +1,5 @@
+<!-- <mat-slide-toggle (change)="onChange($event)" [(ngModel)]="isDarkThemeActive"></mat-slide-toggle> -->
+<div style="position:fixed; top: -7.5rem; right: -7.5rem; height: 12rem; width: 15rem; border-radius: 8rem;" class="text-center match" (click)="onChange(isDarkThemeActive)">
+    <mat-icon *ngIf="!isDarkThemeActive" style="font-size: 3rem; height: 4rem; width: 4rem; position: absolute; bottom: 0.3rem; left: 2.5rem;" class="" >dark_mode</mat-icon>
+    <mat-icon *ngIf="isDarkThemeActive" style="font-size: 3rem; height: 4rem; width: 4rem; position: absolute; bottom: 0.3rem; left: 2.5rem; ;" class="">light_mode</mat-icon>
+</div>
