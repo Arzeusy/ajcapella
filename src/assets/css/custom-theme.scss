@@ -128,6 +128,12 @@ $dark-theme: mat.define-dark-theme(
     background-color: $principal-dark;
     color: white;
   }
+  .match-color {
+    color: white;
+  }
+  .switcher {
+    border: 2px solid $principal-white;
+  }
 }
 
 body {
@@ -148,5 +154,11 @@ body {
   .match {
     background-color: $principal-white;
     color: black;
+  }
+  .match-color {
+    color: black;
+  }
+  .switcher {
+    border: 2px solid $principal-dark;
   }
 }

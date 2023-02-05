@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+//components
+import { HomeComponent } from './pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,6 +45,11 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './componets/navbar/navbar.component';
 
+//others
+import { NgxSpinnerModule } from "ngx-spinner";
+
+
+
 const materialModules = [
   CdkTreeModule,
   MatAutocompleteModule,
@@ -83,14 +90,16 @@ const materialModules = [
   declarations: [
     AppComponent,
     ThemeSwitcherComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ...materialModules,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
