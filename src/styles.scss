@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Alike";
+  src: url("./assets/fonts/Alike-Regular.ttf");
+}
+// @import url("https://fonts.googleapis.com/css2?family=Alike&display=swap");
 
 @import "src/assets/css/grid.scss";
+@import "src/assets/css/navbar.scss";
 
 html,
 body {
@@ -8,5 +14,5 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Alike, Roboto, "Helvetica Neue", sans-serif;
 }
