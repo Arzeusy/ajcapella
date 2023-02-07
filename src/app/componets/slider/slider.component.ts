@@ -9,26 +9,31 @@ import { SliderItemDirective } from './slider-item.directive';
 })
 export class SliderComponent implements AfterContentInit {
 
-    @ContentChildren(SliderItemDirective, { read: ElementRef }) items!: QueryList<ElementRef<HTMLDivElement>>;
+  @ContentChildren(SliderItemDirective, { read: ElementRef }) items!: QueryList<ElementRef<HTMLDivElement>>;
   @ViewChild('slides') slidesContainer!: ElementRef<HTMLDivElement>;
 
-    @Input() customTitle: string = "";
-    @Input() customSubTitle: string = "";
+  @Input() customTitle: string = "";
+  @Input() customSubTitle: string = "";
 
   private slidesIndex = 0;
 
   get currentItem(): ElementRef<HTMLDivElement>|any {
-    // if (this.items != undefined)
-      return this.items?.find((item, index) => index === this.slidesIndex);
-    // else return null
+    return this.items?.find((item, index) => index === this.slidesIndex);
   }
 
+
+  get manyItem(): Array<number> {
+    let largo = this.items?.length;
+    return  Array(largo).fill(0).map((x,i)=>i);
+  }
+
+
   ngAfterContentInit() {
-    console.log('items', this.items);
+    // console.log('items', this.items);
   }
 
   ngAfterViewInit() {
-    console.log('slides', this.slidesContainer);
+    // console.log('slides', this.slidesContainer);
   }
 
   onClickLeft() {
@@ -46,5 +51,11 @@ export class SliderComponent implements AfterContentInit {
       this.slidesIndex++
     }
   }
+
+
+  onClickCircle(index:number) {
+    this.slidesContainer.nativeElement.scrollLeft = this.currentItem.nativeElement.offsetWidth * index;
+  }
+
 
 }
