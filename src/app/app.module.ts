@@ -47,6 +47,8 @@ import { NavbarComponent } from './componets/navbar/navbar.component';
 
 //others
 import { NgxSpinnerModule } from "ngx-spinner";
+import { SliderComponent } from './componets/slider/slider.component';
+import { SliderItemDirective } from './componets/slider/slider-item.directive';
 
 
 
@@ -91,7 +93,9 @@ const materialModules = [
     AppComponent,
     ThemeSwitcherComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    SliderComponent,
+    SliderItemDirective
   ],
   imports: [
     BrowserModule,

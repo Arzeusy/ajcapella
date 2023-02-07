@@ -1,0 +1,27 @@
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+}
+
+.slides {
+  display: flex;
+  overflow-x: scroll;
+  // This is not supported by all browsers. If you want a different animation, please feel free
+  // to find your own solution.
+  scroll-behavior: smooth;
+  height: 100%;
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+}
+
+appSliderItem .controls {
+  display: flex;
+  justify-content: center;
+}
+
+.back {
+  background-color: var(--PrincipaDark);
+}

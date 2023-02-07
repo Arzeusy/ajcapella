@@ -1,6 +1,4 @@
 .page {
-  height: 100%;
-  //   background-color: transparent;
   background-image: url("../img/texture1.png");
 }
 
@@ -47,6 +45,56 @@ img {
   }
 }
 
+@mixin displayCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.neon_card {
+  background-color: white !important;
+  background-image: url("../img/texture1.png");
+  height: 30%;
+  display: flex;
+  position: relative;
+  // justify-content: center;
+  align-items: end;
+  border-color: #f8f9fa;
+  border-bottom: 5px solid #72148c !important;
+  box-shadow: 0px 140px 128px -51px #72148c, 0 20px 50px rgba(248, 249, 250, 1);
+  // 0px ​140px 128px -59px
+  border-radius: 10px;
+  .texto {
+    color: black;
+    font-size: calc(2em + 0.5vw);
+  }
+  .banner {
+    color: white;
+    background-color: var(--primary);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 30%;
+    border-radius: 10px;
+    font-size: calc(1.5em + 0.5vw);
+  }
+  .arrow-left {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid var(--primary);
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+  }
+}
+
 @media (max-width: 995px) {
   .baner {
     .principal {
@@ -54,6 +102,14 @@ img {
     }
     .secondary {
       font-size: calc(0.5em + 0.5vw);
+    }
+  }
+  .neon_card {
+    .texto {
+      font-size: calc(1.5em + 0.5vw);
+    }
+    .banner {
+      font-size: calc(1em + 0.5vw);
     }
   }
 }
