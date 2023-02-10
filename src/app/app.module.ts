@@ -42,13 +42,14 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ThemeSwitcherComponent } from './componets/theme-switcher/theme-switcher.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './componets/navbar/navbar.component';
 
 //others
 import { NgxSpinnerModule } from "ngx-spinner";
 import { SliderComponent } from './componets/slider/slider.component';
 import { SliderItemDirective } from './componets/slider/slider-item.directive';
+import { FooterComponent } from './componets/footer/footer.component';
 
 
 
@@ -95,7 +96,8 @@ const materialModules = [
     NavbarComponent,
     HomeComponent,
     SliderComponent,
-    SliderItemDirective
+    SliderItemDirective,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -103,7 +105,8 @@ const materialModules = [
     BrowserAnimationsModule,
     ...materialModules,
     FormsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
