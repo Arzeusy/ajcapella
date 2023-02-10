@@ -14,6 +14,8 @@ export class SliderComponent implements AfterContentInit {
 
   @Input() customTitle: string = "";
   @Input() customSubTitle: string = "";
+  @Input() texture: boolean = false;
+  @Input() align: string = "c";
 
   private slidesIndex = 0;
 
