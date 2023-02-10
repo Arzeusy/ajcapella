@@ -17,10 +17,10 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es5",
-    "module": "ES2022",
+    "module": "es2020",
     "useDefineForClassFields": false,
     "lib": [
-      "ES2022",
+      "es2020",
       "dom"
     ]
   },
