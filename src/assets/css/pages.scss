@@ -73,6 +73,10 @@ img {
     .texto {
       color: black;
       font-size: calc(1.5em + 0.5vw);
+      a {
+        text-decoration: none;
+        color: black;
+      }
     }
     .banner {
       color: white;
@@ -114,7 +118,7 @@ img {
 
   .commentCard {
     background-color: var(--PrincipalWhite);
-    height: 50%;
+    // height: 50%;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -187,6 +191,16 @@ img {
 }
 .example-header-image {
   background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
+
+.imageAvatar1 {
+  background-image: url("./../img/sheymi.jpeg");
+  background-size: cover;
+}
+
+.imageAvatar2 {
+  background-image: url("./../img/ruth.jpg");
   background-size: cover;
 }
 
