@@ -102,9 +102,9 @@ $light-theme: mat.define-light-theme(
 $dark-theme: mat.define-dark-theme(
   (
     color: (
-      primary: mat.define-palette(mat.$deep-purple-palette, A200),
-      accent: mat.define-palette(mat.$pink-palette, 300),
-      // warn:
+      primary: mat.define-palette($mat-primary, main, lighter, darker),
+      accent: mat.define-palette($mat-accent, main, lighter, darker),
+      warn: mat.define-palette($mat-warn, main, lighter, darker),
     ),
     typography: mat.define-typography-config(),
     density: 0,
