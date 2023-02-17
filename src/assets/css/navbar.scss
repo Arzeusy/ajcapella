@@ -43,6 +43,9 @@
   .imagotipo {
     height: 150px;
   }
+  .logoTK {
+    height: 50px;
+  }
   .suscribeBar {
     display: flex;
     flex-direction: column;
@@ -73,7 +76,10 @@
   }
   .footer {
     .imagotipo {
-      height: 100px !important;
+      height: 85px;
+    }
+    .logoTK {
+      height: 35px;
     }
     // .redes {
     //   display: none;

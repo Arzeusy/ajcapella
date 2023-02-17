@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,4 +13,13 @@ export class HomeComponent {
   subtitle2 = "Mira lo que piensan algunos miembros de nuestra Sociedad de Conocimiento"
   textureState = true;
   align = "l";
+
+ constructor(
+    private route: Router,
+  ) {
+  }
+
+  watchCalendar() {
+    this.route.navigate(['/Calendar']);
+  }
 }

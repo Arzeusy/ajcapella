@@ -50,6 +50,14 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { SliderComponent } from './componets/slider/slider.component';
 import { SliderItemDirective } from './componets/slider/slider-item.directive';
 import { FooterComponent } from './componets/footer/footer.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/moment';
+import * as moment from 'moment';
+import { CalendarComponent } from './pages/calendar/calendar.component';
+
+export function momentAdapterFactory() {
+  return adapterFactory(moment);
+};
 
 
 
@@ -97,7 +105,8 @@ const materialModules = [
     HomeComponent,
     SliderComponent,
     SliderItemDirective,
-    FooterComponent
+    FooterComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -106,7 +115,8 @@ const materialModules = [
     ...materialModules,
     FormsModule,
     NgxSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory })
   ],
   providers: [],
   bootstrap: [AppComponent]

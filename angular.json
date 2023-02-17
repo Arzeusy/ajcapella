@@ -30,6 +30,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/angular-calendar/css/angular-calendar.css",
               "./node_modules/ngx-spinner/animations/fire.css",
               "src/assets/css/custom-theme.scss",
               "src/styles.scss"
@@ -95,6 +96,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/angular-calendar/css/angular-calendar.css",
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "./node_modules/ngx-spinner/animations/fire.css",
               "src/styles.scss"

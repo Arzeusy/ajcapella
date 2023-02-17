@@ -1,10 +1,10 @@
 <div class="container-fluid" class="contrast">
     <div class="row footer">
-        <div class="col-2 col-sm-2 col-lg-3">
+        <div class="col-2 col-sm-2 col-lg-3 text-center">
             <img src="assets/img/imagotipo.svg" alt="logo en blanco" class="img-black imagotipo">
             <img src="assets/img/imagotipo.svg" alt="logo en blanco" class="img-white imagotipo">
         </div>
-        <div class="col-12 col-sm-10 col-lg-5 suscribeBar ">
+        <div class="col-10 col-sm-10 col-lg-5 suscribeBar ">
             <span>Entérate de todas las novedades</span>
             <mat-form-field appearance="fill">
                 <mat-label>Ingresa tu correo electronico</mat-label>
@@ -17,14 +17,16 @@
             <div class="search-part"> 
             </div>
         </div>
-        <div class="col-12 col-lg-4  text-center redes ">
+        <div class="col-6 col-sm-6 col-lg-2  text-center redes ">
             <span>Nuestras redes:</span>
             <div>
                 <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="redirectLink(0)">
-                    <img src="assets/img/facebook.svg" alt="social links"  class="">
+                    <img src="assets/img/facebook.svg" alt="social links"  class="img-black">
+                    <img src="assets/img/facebookB.svg" alt="social links"  class="img-white">
                 </button>
                 <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="redirectLink(1)">
-                    <img src="assets/img/whatsapp.svg" alt="social links" class="">
+                    <img src="assets/img/whatsapp.svg" alt="social links" class="img-black">
+                    <img src="assets/img/whatsappB.svg" alt="social links" class="img-white">
                 </button>
                 <!-- <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="redirectLink(0)">
                     <img src="assets/img/instagram.svg" alt="social links" class="">
@@ -34,5 +36,11 @@
                 </button> -->
             </div>
         </div>
+        <div class="col-6 col-sm-6 col-lg-2 text-center redes" >
+            <span>Powered by :</span>
+            <img src="assets/img/TrueKingdomLogoWhite.svg" alt="logo en blanco" class="img-black logoTK">
+            <img src="assets/img/TrueKingdomLogoBlack.svg" alt="logo en blanco" class="img-white logoTK">
+        </div>
     </div>
+    <br>
 </div>

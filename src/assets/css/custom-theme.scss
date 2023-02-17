@@ -121,7 +121,6 @@ $dark-theme: mat.define-dark-theme(
     color: black;
     .img-white {
       display: inline;
-      height: 150px;
     }
     .img-black {
       display: none;
@@ -151,7 +150,6 @@ body {
     }
     .img-black {
       display: inline;
-      height: 150px;
     }
   }
   .match {
@@ -163,5 +161,24 @@ body {
   }
   .switcher {
     border: 2px solid $principal-dark;
+  }
+}
+
+.btn-group {
+  .mdc-button.left {
+    border-radius: 10px 0 0 10px;
+  }
+  .mdc-button.middle {
+    border-radius: 0;
+    border-left: 1px solid rgba(230, 230, 230, 0.96);
+    border-right: 1px solid rgba(230, 230, 230, 0.96);
+  }
+  .mdc-button.right {
+    border-radius: 0 10px 10px 0;
+  }
+  .mdc-button:not([disabled]):hover {
+    background-color: rgba(193, 193, 193, 0.96);
+    color: rgba(44, 65, 164, 0.96);
+    transition: 0.3s;
   }
 }
