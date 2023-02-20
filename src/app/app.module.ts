@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 //components
@@ -54,11 +54,14 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/moment';
 import * as moment from 'moment';
 import { CalendarComponent } from './pages/calendar/calendar.component';
+import { registerLocaleData } from '@angular/common';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
 };
 
+import localeEs from '@angular/common/locales/es';
+registerLocaleData(localeEs);
 
 
 const materialModules = [
@@ -118,7 +121,7 @@ const materialModules = [
     ReactiveFormsModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory })
   ],
-  providers: [],
+  providers: [ { provide: LOCALE_ID, useValue: 'es' } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

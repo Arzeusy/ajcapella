@@ -15,15 +15,15 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+                <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'es' }}</h3>
             </div>
             <div class="col-md-4">
-                <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
-                    <mat-button-toggle value="bold">Mes</mat-button-toggle>
-                    <mat-button-toggle value="italic">Semana</mat-button-toggle>
-                    <mat-button-toggle value="underline">Dia</mat-button-toggle>
+                <mat-button-toggle-group [formControl]="fontStyleControl" appearance="legacy" name="fontStyle" aria-label="Font Style">
+                    <mat-button-toggle value="month" (click)="setView(CalendarView.Month)" >Mes</mat-button-toggle>
+                    <mat-button-toggle value="week"  (click)="setView(CalendarView.Week)">Semana</mat-button-toggle>
+                    <mat-button-toggle value="day"   (click)="setView(CalendarView.Day)">Dia</mat-button-toggle>
                 </mat-button-toggle-group>
-                <div class="btn-group">
+                <!-- <div class="btn-group">
 
                     <div class="btn btn-primary" (click)="setView(CalendarView.Month)"
                         [class.active]="view === CalendarView.Month">
@@ -36,7 +36,7 @@
                     <div class="btn btn-primary" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">
                         Day
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <br />
@@ -56,39 +56,6 @@
         
         <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
         
-        <br /><br /><br />
-        
-        <h3>
-            Edit events
-            <button class="btn btn-primary float-end" (click)="addEvent()">
-                Add new
-            </button>
-            <div class="clearfix"></div>
-        </h3>
-       
-        <ng-template #modalContent let-close="close">
-            <div class="modal-header">
-                <h5 class="modal-title">Event action occurred</h5>
-                <button type="button" class="close" (click)="close()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div>
-                    Action:
-                    <!-- <pre>{{ modalData?.action }}</pre> -->
-                </div>
-                <div>
-                    Event:
-                    <!-- <pre>{{ modalData?.event | json }}</pre> -->
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" (click)="close()">
-                    OK
-                </button>
-            </div>
-        </ng-template>
         </div>
         <div class="col-12">
             <br>

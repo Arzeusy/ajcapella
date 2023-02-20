@@ -3,6 +3,8 @@ import {
   ChangeDetectionStrategy,
   ViewChild,
   TemplateRef,
+  OnInit,
+  ChangeDetectorRef,
 } from '@angular/core';
 import {
   startOfDay,
@@ -16,12 +18,19 @@ import {
 } from 'date-fns';
 import { Subject } from 'rxjs';
 import {
+  CalendarDateFormatter,
   CalendarEvent,
   CalendarEventAction,
   CalendarEventTimesChangedEvent,
   CalendarView,
 } from 'angular-calendar';
 import { EventColor } from 'calendar-utils';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+
+import { takeUntil } from 'rxjs/operators';
+import { CustomDateFormatter } from './custom-date-formatter.provider';
+import { FormControl } from '@angular/forms';
+
 
 const colors: Record<string, EventColor> = {
   red: {
@@ -42,17 +51,24 @@ const colors: Record<string, EventColor> = {
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.sass']
+  styleUrls: ['./calendar.component.sass'],
+  providers: [
+    {
+      provide: CalendarDateFormatter,
+      useClass: CustomDateFormatter,
+    },
+  ],
 })
-export class CalendarComponent  {
+export class CalendarComponent  implements OnInit {
   // @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
-
+  fontStyleControl = new FormControl(CalendarView.Month);
+  
   CalendarView = CalendarView;
 
   viewDate: Date = new Date();
-
+  private destroy$ = new Subject<void>();
   // modalData: {
   //   action: string;
   //   event: CalendarEvent;
@@ -121,7 +137,10 @@ export class CalendarComponent  {
 
   activeDayIsOpen: boolean = true;
 
-  constructor() {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private cd: ChangeDetectorRef
+  ) {}
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -188,4 +207,40 @@ export class CalendarComponent  {
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false;
   }
+
+
+  ngOnInit() {
+  const CALENDAR_RESPONSIVE = {
+      small: {
+        breakpoint: '(max-width: 576px)',
+        daysInWeek: 2,
+      },
+      medium: {
+        breakpoint: '(max-width: 768px)',
+        daysInWeek: 3,
+      },
+      large: {
+        breakpoint: '(max-width: 960px)',
+        daysInWeek: 5,
+      },
+    };
+
+    this.breakpointObserver
+      .observe(
+        Object.values(CALENDAR_RESPONSIVE).map(({ breakpoint }) => breakpoint)
+      )
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((state: BreakpointState) => {
+        const foundBreakpoint = Object.values(CALENDAR_RESPONSIVE).find(
+          ({ breakpoint }) => !!state.breakpoints[breakpoint]
+        );
+        if (foundBreakpoint) {
+          // this.daysInWeek = foundBreakpoint.daysInWeek;
+        } else {
+          // this.daysInWeek = 7;
+        }
+        this.cd.markForCheck();
+      });
+  }
+
 }
