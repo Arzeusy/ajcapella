@@ -9,8 +9,11 @@ $principal-white: #f5f0f0;
   --PrincipalWhite: #f5f0f0;
   --PrincipaDark: #03091e;
   --primary: #d9184b;
+  --primary_opp: #d9184c8e;
   --accent: #72148c;
+  --accent_opp: #72148c8c;
   --warn: #be248d;
+  --err: #fe4949;
 }
 
 $fontConfig: (
@@ -136,6 +139,49 @@ $dark-theme: mat.define-dark-theme(
   .switcher {
     border: 2px solid $principal-white;
   }
+  // ---------------------------------------
+  //region Calendario
+
+  .cal-theme {
+    .cal-month-view,
+    .cal-week-view {
+      background-color: var(--PrincipaDark);
+      .cal-day-cell.cal-weekend .cal-day-number {
+        color: var(--err);
+      }
+      .cal-cell-row:hover {
+        background-color: var(--accent_opp);
+      }
+      .cal-day-badge {
+        background-color: var(--warn);
+      }
+      .cal-cell-row .cal-cell:hover,
+      .cal-month-view .cal-cell.cal-has-events.cal-open {
+        background-color: var(--accent_opp);
+      }
+      .cal-cell.cal-has-events.cal-open {
+        background-color: var(--accent_opp);
+      }
+      .cal-day-cell.cal-today {
+        background-color: var(--primary_opp);
+      }
+      //
+      .cal-hour-odd {
+        background-color: var(--PrincipaDark);
+      }
+      .cal-time-events
+        .cal-day-columns:not(.cal-resize-active)
+        .cal-hour-segment:hover {
+        background-color: var(--accent_opp);
+      }
+      .cal-header.cal-weekend span {
+        color: var(--err);
+      }
+    }
+  }
+  // ---------------------------------------
+  // calenddario
+  // ---------------------------------------
 }
 
 body {
