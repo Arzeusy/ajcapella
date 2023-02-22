@@ -30,6 +30,7 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { takeUntil } from 'rxjs/operators';
 import { CustomDateFormatter } from './custom-date-formatter.provider';
 import { FormControl } from '@angular/forms';
+import * as moment from 'moment';
 
 
 const colors: Record<string, EventColor> = {
@@ -45,6 +46,10 @@ const colors: Record<string, EventColor> = {
     primary: '#e3bc08',
     secondary: '#FDF1BA',
   },
+  accent: {
+    primary: '#be248d',
+    secondary: '#be248d',
+  }
 };
 
 
@@ -93,45 +98,91 @@ export class CalendarComponent  implements OnInit {
   ];
 
   refresh = new Subject<void>();
+  dia1 = moment("26/02/2023 19:00:00", "DD/MM/YYYY hh:mm:ss").toDate();
+  dia2 = moment("12/03/2023 19:00:00", "DD/MM/YYYY hh:mm:ss").toDate();
+  dia3 = moment("26/03/2023 19:00:00", "DD/MM/YYYY hh:mm:ss").toDate();
+  dia4 = moment("09/04/2023 19:00:00", "DD/MM/YYYY hh:mm:ss").toDate();
+  dia5 = moment("23/04/2023 19:00:00", "DD/MM/YYYY hh:mm:ss").toDate();
+  dia6 = moment("07/05/2023 19:00:00", "DD/MM/YYYY hh:mm:ss").toDate();
 
   events: CalendarEvent[] = [
     {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: { ...colors['red'] },
+      start: this.dia1,
+      end: addHours(this.dia1, 2),
+      title: 'INTRODUCCION AL AT Y NT \n AT: DIVISIÓN DEL AT',
+      color: { ...colors['accent'] },
       actions: this.actions,
-      allDay: true,
+      // allDay: true,
       resizable: {
-        beforeStart: true,
-        afterEnd: true,
+        beforeStart: false,
+        afterEnd: false,
       },
-      draggable: true,
+      draggable: false,
     },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: { ...colors['yellow'] },
+   {
+      start: this.dia2,
+      end: addHours(this.dia2, 2),
+      title: 'NT: DIVISIÓN DEL NT',
+      color: { ...colors['accent'] },
       actions: this.actions,
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: { ...colors['blue'] },
-      allDay: true,
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: addHours(new Date(), 2),
-      title: 'A draggable and resizable event',
-      color: { ...colors['yellow'] },
-      actions: this.actions,
+      // allDay: true,
       resizable: {
-        beforeStart: true,
-        afterEnd: true,
+        beforeStart: false,
+        afterEnd: false,
       },
-      draggable: true,
+      draggable: false,
+    },
+   {
+      start: this.dia3,
+      end: addHours(this.dia3, 2),
+      title: 'CONTEXTO DE LAS ESCRITURAS',
+      color: { ...colors['accent'] },
+      actions: this.actions,
+      // allDay: true,
+      resizable: {
+        beforeStart: false,
+        afterEnd: false,
+      },
+      draggable: false,
+    },
+   {
+      start: this.dia4,
+      end: addHours(this.dia4, 2),
+      title: 'OTROS PRINCIPIOS DEL CONTEXTO',
+      color: { ...colors['accent'] },
+      actions: this.actions,
+      // allDay: true,
+      resizable: {
+        beforeStart: false,
+        afterEnd: false,
+      },
+      draggable: false,
+    },
+   {
+      start: this.dia5,
+      end: addHours(this.dia5, 2),
+      title: 'CONTEXTO DE GENERO',
+      color: { ...colors['accent'] },
+      actions: this.actions,
+      // allDay: true,
+      resizable: {
+        beforeStart: false,
+        afterEnd: false,
+      },
+      draggable: false,
+    },
+    {
+      start: this.dia6,
+      end: addHours(this.dia6, 2),
+      title: 'APOCALIPSIS',
+      color: { ...colors['accent'] },
+      actions: this.actions,
+      // allDay: true,
+      resizable: {
+        beforeStart: false,
+        afterEnd: false,
+      },
+      draggable: false,
     },
   ];
 
