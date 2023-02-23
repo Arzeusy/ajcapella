@@ -177,6 +177,9 @@ $dark-theme: mat.define-dark-theme(
       .cal-header.cal-weekend span {
         color: var(--err);
       }
+      .cal-header.cal-today {
+        background-color: var(--primary_opp);
+      }
     }
   }
   // ---------------------------------------
@@ -229,17 +232,17 @@ body {
   }
 }
 
-// .mat-button-toggle {
-//   background-color: #306cee;
-//   color: #ffffff;
-// }
+.mat-button-toggle {
+  background-color: var(--warn);
+  color: white;
+}
 
-// .mat-button-toggle:hover {
-//   background-color: transparent;
-//   color: #1100ff !important;
-// }
+.mat-button-toggle:hover {
+  background-color: var(--primary_opp);
+  color: white !important;
+}
 
-// .mat-button-toggle-checked {
-//   background-color: #ec2c4c;
-//   color: #67ec79 !important;
-// }
+.mat-button-toggle-checked {
+  background-color: var(--primary);
+  color: white !important;
+}

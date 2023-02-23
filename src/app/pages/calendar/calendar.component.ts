@@ -5,6 +5,7 @@ import {
   TemplateRef,
   OnInit,
   ChangeDetectorRef,
+  OnDestroy,
 } from '@angular/core';
 import {
   startOfDay,
@@ -64,14 +65,14 @@ const colors: Record<string, EventColor> = {
     },
   ],
 })
-export class CalendarComponent  implements OnInit {
+export class CalendarComponent  implements OnInit,  OnDestroy{
   // @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
   fontStyleControl = new FormControl(CalendarView.Month);
   
   CalendarView = CalendarView;
-
+  daysInWeek = 7;
   viewDate: Date = new Date();
   private destroy$ = new Subject<void>();
   // modalData: {
@@ -264,11 +265,11 @@ export class CalendarComponent  implements OnInit {
   const CALENDAR_RESPONSIVE = {
       small: {
         breakpoint: '(max-width: 576px)',
-        daysInWeek: 2,
+        daysInWeek: 3,
       },
       medium: {
         breakpoint: '(max-width: 768px)',
-        daysInWeek: 3,
+        daysInWeek: 4,
       },
       large: {
         breakpoint: '(max-width: 960px)',
@@ -286,12 +287,16 @@ export class CalendarComponent  implements OnInit {
           ({ breakpoint }) => !!state.breakpoints[breakpoint]
         );
         if (foundBreakpoint) {
-          // this.daysInWeek = foundBreakpoint.daysInWeek;
+          this.daysInWeek = foundBreakpoint.daysInWeek;
         } else {
-          // this.daysInWeek = 7;
+          this.daysInWeek = 7;
         }
         this.cd.markForCheck();
       });
+  }
+
+    ngOnDestroy() {
+    this.destroy$.next();
   }
 
 }
