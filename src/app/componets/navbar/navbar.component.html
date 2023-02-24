@@ -1,12 +1,12 @@
 <div class="container-fluid"  class="contrast">
     <div class="row">
         <div class="col-2 col-lg-5">
-            <img src="assets/img/logo.svg" alt="logo en blanco"  class="img-black" >
-            <img src="assets/img/logo-black.svg" alt="logo en negro" class="img-white" >
+            <img src="assets/img/logo.svg" alt="logo en blanco"  class="img-black"  (click)="gohome()">
+            <img src="assets/img/logo-black.svg" alt="logo en negro" class="img-white" (click)="gohome()" >
         </div>
         <div class="col-10 col-lg-6 menu" >
             <div class="row text-center links" >
-                <div class="col-3 align-self-center">
+                <div class="col-3 align-self-center" (click)="watchCalendar()">
                     CALENDARIOS
                 </div>
                 <div class="col-3 align-self-center">
