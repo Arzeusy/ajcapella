@@ -1,11 +1,11 @@
-<div class="container-fluid"  class="contrast">
+<div class="container-fluid" class="contrast">
     <div class="row">
         <div class="col-2 col-lg-5">
-            <img src="assets/img/logo.svg" alt="logo en blanco"  class="img-black"  (click)="gohome()">
-            <img src="assets/img/logo-black.svg" alt="logo en negro" class="img-white" (click)="gohome()" >
+            <img src="assets/img/logo.svg" alt="logo en blanco" class="img-black" (click)="gohome()">
+            <img src="assets/img/logo-black.svg" alt="logo en negro" class="img-white" (click)="gohome()">
         </div>
-        <div class="col-10 col-lg-6 menu" >
-            <div class="row text-center links" >
+        <div class="col-10 col-lg-6 menu">
+            <div class="row text-center links">
                 <div class="col-3 align-self-center" (click)="watchCalendar()">
                     CALENDARIOS
                 </div>
@@ -16,15 +16,61 @@
                     CONTACTANO
                 </div>
                 <div class="col-3 align-self-center">
-                    INICIAR SESION
+                    <span [matMenuTriggerFor]="menu" #singInTrigger="matMenuTrigger">
+                        INICIAR SESION
+                    </span>
+                    <!-- <button mat-flat-button  >
+                    </button> -->
                 </div>
             </div>
         </div>
     </div>
-    <div class="row justify-content-center liveBar" >
+    <div class="row justify-content-center liveBar">
         <div class="col-12 col-sm-8 aling-items-center text-center py-1">
-            <span  >Ahora en vivo!!! visita nuestra pagina de Facebook</span>
+            <span>Ahora en vivo!!! visita nuestra pagina de Facebook</span>
         </div>
     </div>
-    
+
 </div>
+
+
+<mat-menu #menu="matMenu" xPosition="before" >
+    <mat-card class="elevation-card-0 " (click)="$event.stopPropagation()">
+        <mat-card-header>
+            <mat-card-title>Rider Reyes en Memoria</mat-card-title>
+            <mat-card-subtitle>Discipulao para principiantes</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="formReg" >
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="ajcapella@gmail.com" formControlName="email">
+                <mat-icon matSuffix>person</mat-icon>
+                <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <br>
+            <button mat-raised-button color="primary" (click)="onSubmit(singInTrigger)" >Ingresar</button>
+            </form>
+        </mat-card-content>
+        <mat-card-actions align="end" >
+            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" >
+                <!-- <img src="assets/img/facebook.svg" alt="social links" class="img-black"> -->
+                <img src="assets/img/facebookB.svg" alt="social links" class=" img-white">
+            </button>
+        <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon" (click)="loginWithGoogle(singInTrigger)">
+            <!-- <mat-icon>menu</mat-icon> -->
+                <img src="assets/img/google.svg" alt="social links" class=" img-white">
+        </button>
+        </mat-card-actions>
+    </mat-card>
+</mat-menu>

@@ -61,6 +61,9 @@ export function momentAdapterFactory() {
 };
 
 import localeEs from '@angular/common/locales/es';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 registerLocaleData(localeEs);
 
 
@@ -119,7 +122,9 @@ const materialModules = [
     FormsModule,
     NgxSpinnerModule,
     ReactiveFormsModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory })
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory }),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth())
   ],
   providers: [ { provide: LOCALE_ID, useValue: 'es' } ],
   bootstrap: [AppComponent]

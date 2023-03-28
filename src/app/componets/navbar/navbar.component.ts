@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +11,18 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
 
+  hide = true;
+  formReg: FormGroup;
+
    constructor(
-    private route: Router,
-  ) {
+     private route: Router,
+     private userService: UserService,
+   ) {
+     this.formReg = new FormGroup({
+       email: new FormControl(),
+       password: new FormControl()
+     });
+
   }
 
 
@@ -20,7 +32,39 @@ export class NavbarComponent {
 
   gohome() {
     this.route.navigate(['/']);
-    
+  }
+
+  onSubmit(menuTrigger: MatMenuTrigger) {
+    console.log(this.formReg.value);
+    menuTrigger.closeMenu();
+
+    this.userService.login(this.formReg.value)
+      .then(
+        response => {
+          console.log(response);
+          this.route.navigate(["/Calendar"]);
+        }
+      )
+      .catch(
+        error => console.error(error)
+      );
+
+  }
+
+  loginWithGoogle(menuTrigger: MatMenuTrigger) {
+    menuTrigger.closeMenu();
+
+    this.userService.loginGoogle()
+      .then(
+        response => {
+          console.log(response);
+          this.route.navigate(["/Calendar"]);
+        }
+      )
+      .catch(
+        error => console.error(error)
+      );
+
   }
 
 }
