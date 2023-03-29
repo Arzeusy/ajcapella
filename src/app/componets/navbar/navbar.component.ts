@@ -34,6 +34,25 @@ export class NavbarComponent {
     this.route.navigate(['/']);
   }
 
+  onRegister(menuTrigger: MatMenuTrigger) {
+    console.log(this.formReg.value);
+    menuTrigger.closeMenu();
+
+    this.userService.register(this.formReg.value)
+      .then(
+        response => {
+          console.log(response);
+          this.userService.sendVerificatin(response.user);
+          this.route.navigate(["/Calendar"]);
+        }
+      )
+      .catch(
+        error => console.error(error)
+      );
+
+  }
+
+
   onSubmit(menuTrigger: MatMenuTrigger) {
     console.log(this.formReg.value);
     menuTrigger.closeMenu();
