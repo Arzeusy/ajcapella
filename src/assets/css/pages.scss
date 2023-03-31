@@ -229,3 +229,17 @@ img {
     }
   }
 }
+
+.avatarUser {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+  // border-width: 1px;
+  border: 1px solid white;
+}
+
+.itemCenter {
+  @include displayCenter();
+}
