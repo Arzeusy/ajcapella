@@ -49,7 +49,8 @@
                                             </mat-form-field>
                                         </div>
                                         <div class="col-12">
-                                            <button mat-button color="warn" (click)="changeTypeForm()">{{TypeForm ? "Sign up": "Sign in"}}</button>
+                                            <button mat-button color="warn" (click)="changeTypeForm()">{{TypeForm ? "Sign up": "Sign
+                                                in"}}</button>
                                         </div>
                                         <div class="col-12">
                                             <button mat-raised-button color="primary" (click)="sendInformation(singInTrigger)">{{TypeForm ?
@@ -72,14 +73,12 @@
                             </mat-card-actions>
                         </mat-card>
                     </mat-menu>
-                  
                 </div>
                 <div class="col-3 itemCenter"  *ngIf="userData" style="margin: auto;">
                     <img 
                         [src]="userPhotoData"
                         referrerpolicy="no-referrer"
                         mat-card-avatar class="avatarUser" [matMenuTriggerFor]="menuUser" #singInTrigger="matMenuTrigger" />
-
                     <mat-menu #menuUser="matMenu" xPosition="before" class="cardSession">
                         <mat-card class="elevation-card-0 contrast match text-center" (click)="$event.stopPropagation()"
                             (keydown)="$event.stopPropagation()">
@@ -88,13 +87,13 @@
                                 <mat-card-title>Rider Reyes en Memoria</mat-card-title>
                                 <mat-card-subtitle>Discipulado para principiantes</mat-card-subtitle>
                             </mat-card-header>
-                                
+                    
                             <mat-card-content>
-                                
+                    
                             </mat-card-content>
                             <mat-card-actions align="end" class="redes">
-                                <!-- <div class="dot"></div> -->
-                                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="logout(singInTrigger)">
+                                <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"
+                                    (click)="logout(singInTrigger)">
                                     <mat-icon>logout</mat-icon>
                                 </button>
                             </mat-card-actions>
@@ -112,5 +111,89 @@
         </div>
     </div>
 
+</div>
+
+<div class="fabMenuButtons " >
+    <div class="fabButton contrast " *ngIf="userData"  [matMenuTriggerFor]="menuUser" #singInTrigger="matMenuTrigger">
+        <img [src]="userPhotoData" referrerpolicy="no-referrer" mat-card-avatar class="avatarUser" />
+        <mat-menu #menuUser="matMenu" xPosition="before" class="cardSession">
+            <mat-card class="elevation-card-0 contrast match text-center" (click)="$event.stopPropagation()"
+                (keydown)="$event.stopPropagation()">
+                <br>
+                <mat-card-header>
+                    <mat-card-title>Rider Reyes en Memoria</mat-card-title>
+                    <mat-card-subtitle>Discipulado para principiantes</mat-card-subtitle>
+                </mat-card-header>
+
+                <mat-card-content>
+
+                </mat-card-content>
+                <mat-card-actions align="end" class="redes">
+                    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"
+                        (click)="logout(singInTrigger)">
+                        <mat-icon>logout</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-menu>
+    </div>
+
+    <div class="fabButton contrast " *ngIf="!userData" [matMenuTriggerFor]="menu" #singInTrigger="matMenuTrigger">
+        <mat-icon>
+            account_circle
+        </mat-icon>
+        <mat-menu #menu="matMenu" xPosition="before" class="cardSession">
+            <mat-card class="elevation-card-0 contrast match text-center" (click)="$event.stopPropagation()"
+                (keydown)="$event.stopPropagation()">
+                <br>
+                <mat-card-title>Rider Reyes en Memoria</mat-card-title>
+                <mat-card-subtitle>Discipulado para principiantes</mat-card-subtitle>
+                <mat-card-content style="z-index: 1;">
+                    <form [formGroup]="formReg" autocomplete="off">
+                        <div class="row justify-content-center">
+                            <div class="col-12"><br></div>
+                            <div class="col-12">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput placeholder="ajcapella@gmail.com" formControlName="email">
+                                    <mat-icon matSuffix>person</mat-icon>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>password</mat-label>
+                                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                        [attr.aria-pressed]="hide">
+                                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    </button>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12">
+                                <button mat-button color="warn" (click)="changeTypeForm()">{{TypeForm ? "Sign up": "Sign
+                                    in"}}</button>
+                            </div>
+                            <div class="col-12">
+                                <button mat-raised-button color="primary" (click)="sendInformation(singInTrigger)">{{TypeForm ?
+                                    "Sign in": "Register now!"}}</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </mat-card-content>
+                <mat-card-actions align="end" class="redes">
+                    <div class="dot"></div>
+                    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"
+                        (click)="loginWithFacebook(singInTrigger)">
+                        <img src="assets/img/facebook.svg" alt="social links" class="">
+                    </button>
+                    <button mat-icon-button color="warn" aria-label="Example icon button with a menu icon"
+                        (click)="loginWithGoogle(singInTrigger)">
+                        <img src="assets/img/google.svg" alt="social links" class="">
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-menu>
+    </div>
 </div>
 
