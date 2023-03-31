@@ -164,8 +164,11 @@ export class NavbarComponent {
     return localStorage.getItem("accessToken");
   }
 
-    get userPhotoData() {
-    return localStorage.getItem("photoURL");
+  get userPhotoData() {
+      let photo = localStorage.getItem("photoURL");
+      if (photo == "null") {
+        return "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+      }else return photo
   }
 
   logout(menuTrigger: MatMenuTrigger) {
