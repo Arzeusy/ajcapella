@@ -1,0 +1,33 @@
+.coursesCard {
+  @extend .neon_card;
+  //   background-color: var(--primary_opp);
+
+  .barTime {
+    background-color: var(--primary);
+    color: white !important;
+  }
+  .price {
+    color: var(--accent);
+  }
+
+  .facilities {
+    line-height: 1.25;
+  }
+
+  .facilities::marker {
+    //   ▒
+    content: "! ";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-family: "Font Awesome 6 Pro";
+    // font-weight: 700;
+    font-weight: bold;
+  }
+}
+
+.dark-mode {
+  .coursesCard .neon_efect {
+    color: var(--PrincipaDark);
+  }
+}

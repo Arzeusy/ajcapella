@@ -1,0 +1,135 @@
+<div class="container-fluid ">
+    <br>
+    <div class="row justify-content-center match-color baner">
+        <div class="col-12">
+            <br>
+        </div>
+        <div class="col-11  row justify-content-center coursesCard">
+            <div class="col-12 col-lg-8">
+                <div class="col-12">
+                    <h2>{{SelectedCourse.title}} - {{SelectedCourse.Cicle}} </h2>
+                    <span>{{SelectedCourse.Description}}</span>
+                </div>
+                <div class="col-12">
+                    <b><h4>Descripción</h4></b>
+                    <span>{{SelectedCourse.Description}}</span>
+                    <ul>
+                        <li *ngFor="let item of SelectedCourse.Facilities">
+                            {{item}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 ">
+                    <b><span>Horario</span></b>
+                    <p>{{SelectedCourse.schedule.Description}}</p>
+                    <table style="width: 100%;">
+                        <tbody>
+
+                            <tr>
+                                <td><b>{{SelectedCourse.schedule.Day}}</b></td>
+                                <td><b>Hora:</b> {{SelectedCourse.schedule.Time}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <b>Zona horaria:</b> {{SelectedCourse.schedule.TimeZone}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <b>Duracion:</b> {{SelectedCourse.schedule.Duration}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <b>Inicio clases:</b> {{SelectedCourse.schedule.startAt | date: "dd/MM/yyyy"}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-12">
+                    <h4>Opciones de inscripción</h4>
+                    <p>
+                        Para realizar tu inscripción en moneda local de tu país, puedes elegir cualquiera de las siguientes opciones. 
+                        <strong>Al realizar tu inscripción, deberás notificarnos vía correo para agilizar tu registro al curso.</strong>
+                    </p>
+                    <table style="width: 100%;" class="text-center">
+                        <thead>
+                            <tr>
+                                <th>País</th>
+                                <th>Precio</th>
+                                <th>Medio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                    
+                            <tr>
+                                <td><b>Nicaragua</b></td>
+                                <td>{{SelectedCourse.Currency}} {{SelectedCourse.registration}}</td>
+                                <td>Banco Lafise cuenta '117258445'</td>
+                            </tr>
+                            <tr>
+                                <td><b>Otros</b></td>
+                                <td>{{SelectedCourse.Currency}} {{SelectedCourse.registration}}</td>
+                                <td>PayPal</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 neon_efect p-0 ">
+                <div class="contrast  text-center">
+                    <img src="assets/img/imagotipo.svg" alt="logo en blanco" class="img-black imagotipo">
+                    <img src="assets/img/imagotipo.svg" alt="logo en blanco" class="img-white imagotipo">
+
+                </div>
+                <div class="text-center barTime">
+                    <!-- <h1>_</h1> -->
+                    <br>
+                    <span>Cierre de inscripciones en:</span>
+                    <app-countdown [dDay]="SelectedCourse.registrationClosing" ></app-countdown>
+                    <br>
+                </div>
+                <div class="text-center">
+                    <h2 class="price">
+                        {{SelectedCourse.Currency}}
+                        {{SelectedCourse.registration}}
+                    </h2>
+                    <span>Único pago para todo el curso.</span>
+                </div>
+                <div>
+                    <!-- region de boton de pago  -->
+                </div>
+                <div>
+                   <ul>
+                        <li>
+                            <span>Cierre inscripciones: 28/mayo/2023</span>
+                        </li>
+                        <li>
+                            <span>Inicio clases: 29/mayo/2023</span>
+                        </li>
+                        <li>
+                            Duración: 4 semanas.
+                        </li>
+                   </ul>
+
+                </div>
+                <div>
+                    <div class="text-center">
+                        <h4>Este curso Incluye:</h4>
+                    </div>
+                    <ul>
+                        <li *ngFor="let item of SelectedCourse.Facilities" class="facilities">
+                            {{item}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-12">
+            <br>
+        </div>
+    </div>
+    <br>
+    <app-footer></app-footer>
+
+</div>

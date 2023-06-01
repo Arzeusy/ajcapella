@@ -64,6 +64,8 @@ import localeEs from '@angular/common/locales/es';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { CourseDescriptionComponent } from './pages/course-description/course-description.component';
+import { CountdownComponent } from './componets/countdown/countdown.component';
 registerLocaleData(localeEs);
 
 
@@ -112,7 +114,9 @@ const materialModules = [
     SliderComponent,
     SliderItemDirective,
     FooterComponent,
-    CalendarComponent
+    CalendarComponent,
+    CourseDescriptionComponent,
+    CountdownComponent
   ],
   imports: [
     BrowserModule,

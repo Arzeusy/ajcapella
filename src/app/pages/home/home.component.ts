@@ -22,4 +22,10 @@ export class HomeComponent {
   watchCalendar() {
     this.route.navigate(['/Calendar']);
   }
+
+  watchCourse( idCourse: number) {
+    this.route.navigate(['/Courses', idCourse]);
+    
+  }
+
 }
