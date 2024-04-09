@@ -20,22 +20,22 @@ body {
   // overflow-y: auto;
   /* Works on mozila*/
 
-  scrollbar-color: #848484 #e8e8e8 !important;
-  scrollbar-width: thin !important;
-  // background-color: rgba(0, 0, 0, 0.03);
+  // scrollbar-color: #848484 #e8e8e8 ;
+  // scrollbar-width: thin !important;
+  // // background-color: rgba(0, 0, 0, 0.03);
 
-  /* scroll thumb and track */
-  /* Works on Chrome, Edge, and Safari */
-  &::-webkit-scrollbar {
-    width: 5px !important;
-  }
+  // /* scroll thumb and track */
+  // /* Works on Chrome, Edge, and Safari */
+  // &::-webkit-scrollbar {
+  //   width: 5px !important;
+  // }
 
-  &::-webkit-scrollbar-track {
-    background: #e8e8e8;
-  }
+  // &::-webkit-scrollbar-track {
+  //   background: #e8e8e8;
+  // }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: #848484;
-    border-radius: 20px;
-  }
+  // &::-webkit-scrollbar-thumb {
+  //   background-color: #848484;
+  //   border-radius: 20px;
+  // }
 }

@@ -1,5 +1,5 @@
 <div class="countdown">
-    <div>
+    <div *ngIf="secondsToDday >= 0" >
         <div class="timer">
             <!-- <div class="legend">
                 Dias
@@ -29,6 +29,13 @@
             </div> -->
             <span id="seconds"> {{secondsToDday}} </span>
             <span>segs</span>
+        </div>
+    </div>
+    <div *ngIf=" !(secondsToDday >= 0)" >
+        <div class="timer">
+            <div>
+                <span>Proximamente</span>
+            </div>
         </div>
     </div>
 </div>
